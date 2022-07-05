@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const joi = require('joi');
 const {joiPassword} = require('joi-password');
+const { registerSchema } = require('swaggiffy');
 
 
 const Schema = mongoose.Schema({
@@ -21,6 +22,7 @@ const Schema = mongoose.Schema({
 
 
 const User = mongoose.Model('User', Schema);
+registerSchema('User',User,{orm:'mongoose'})
 
 const validateUser = (user) => {
     const schema = {

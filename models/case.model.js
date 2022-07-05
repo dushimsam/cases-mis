@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const timestamps = require('mongoose-timestamp');
 const joi = require('joi');
+const {registerSchema} = require('swaggiffy')
 
 
 
@@ -25,6 +26,7 @@ const Schema = mongoose.Schema({
 Schema.plugin(timestamps);
 
 const Case = mongoose.Model('Case', Schema);
+registerSchema('Case',Case,{orm:'mongoose'})
 
 const validateCase = (data) => {
     const schema = {

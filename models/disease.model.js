@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const joi = require('joi');
+const { registerSchema } = require('swaggiffy');
 
 
 
@@ -12,6 +13,7 @@ const Schema = mongoose.Schema({
 
 
 const Disease = mongoose.Model('Disease', Schema);
+registerSchema('Disease',Disease,{orm:'mongoose'})
 
 const validateDisease = (data) => {
     const schema = {

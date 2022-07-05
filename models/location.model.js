@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const joi = require('joi');
+const { registerSchema } = require('swaggiffy');
 
 
 const Schema = mongoose.Schema({
@@ -11,6 +12,7 @@ const Schema = mongoose.Schema({
 
 
 const Location = mongoose.Model('Location', Schema);
+registerSchema('Location',Location,{orm:'mongoose'})
 
 const validateLocation = (data) => {
     const schema = {

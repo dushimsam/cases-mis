@@ -42,6 +42,6 @@ router.get('/diseases/:id', async (req, res) => {
 })
 
 
-registerDefinition(router,{basePath:'/api/cases',tags:'Case' ,Schema: 'Case'});
+registerDefinition(router,{basePath:'/api/cases',tags:'Case' ,mappedSchema: 'Case'});
 
 module.exports = router;
