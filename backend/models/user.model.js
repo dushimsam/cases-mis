@@ -20,9 +20,8 @@ const Schema = mongoose.Schema({
 
 })
 
-
-const User = mongoose.Model('User', Schema);
-registerSchema('User',User,{orm:'mongoose'})
+registerSchema('User',Schema,{orm:'mongoose'})
+const User = mongoose.model('User', Schema);
 
 const validateUser = (user) => {
     const schema = {

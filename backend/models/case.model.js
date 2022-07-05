@@ -24,9 +24,8 @@ const Schema = mongoose.Schema({
 })
 
 Schema.plugin(timestamps);
-
-const Case = mongoose.Model('Case', Schema);
-registerSchema('Case',Case,{orm:'mongoose'})
+registerSchema('Case',Schema,{orm:'mongoose'})
+const Case = mongoose.model('Case', Schema);
 
 const validateCase = (data) => {
     const schema = {

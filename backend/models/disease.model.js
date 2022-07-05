@@ -3,6 +3,7 @@ const joi = require('joi');
 const { registerSchema } = require('swaggiffy');
 
 
+
 const Schema = mongoose.Schema({
     name: {
         type: String,
@@ -10,15 +11,15 @@ const Schema = mongoose.Schema({
     }
 })
 
-const Location = mongoose.Model('Location', Schema);
-registerSchema('Location',Location,{orm:'mongoose'})
+registerSchema('Disease',Schema,{orm:'mongoose'})
+const Disease = mongoose.model('Disease', Schema);
 
-const validateLocation = (data) => {
+const validateDisease = (data) => {
     const schema = {
         name: joi.string().required(),
     }
     return joi.validate(data, schema);
 };
 
-module.exports.validateLocation = validateLocation;
-module.exports.Location = Location;
+module.exports.validateDisease = validateDisease;
+module.exports.Disease = Disease;
