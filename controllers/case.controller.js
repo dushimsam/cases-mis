@@ -1,7 +1,7 @@
 const express = require("express");
 const {validateCase , Case} = require("../models/case.model");
 const router = express.Router();
-
+const {registerDefinition} = require("swaggiffy")
 
 router.post("/", async (req, res) => {
 
@@ -41,5 +41,7 @@ router.get('/diseases/:id', async (req, res) => {
     }
 })
 
+
+registerDefinition(router,{basePath:'/api/cases',tags:'Case' ,Schema: 'Case'});
 
 module.exports = router;
