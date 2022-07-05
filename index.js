@@ -17,6 +17,10 @@ const env = process.env.NODE_ENV || "development";
 const DB_URL =  env === "container" ? process.env.DB_URL_CONTAINER : process.env.DB_URL_DEV
 
 
+const userController = require("./controllers/user.controller");
+const caseController = require("./controllers/case.controller");
+const diseaseController = require("./controllers/disease.controller");
+const locationController = require("./controllers/location.controller");
 
 // Connect to MongoDB
 mongoose.connect(DB_URL)
@@ -24,16 +28,25 @@ mongoose.connect(DB_URL)
 .catch( (err) => console.error("Could not connect to MongoDB"))
 
 // User Routes
-app.use('/api/user', userRoutes);
+app.use('/api/user', userController);
 
-// Candidate Routes
-app.use('/api/candidate', candidateRoutes);
+// Case Routes
+app.use('/api/cases', caseController);
+
+
+// Diseases Routes
+app.use('/api/diseases', diseaseController);
+
+
+// Diseases Routes
+app.use('/api/locations', locationController);
+
 
 // Welcome Route
 app.get('/', (req,res) => {
-    res.send('VOTING SYSTEM ࡙࡙࡙࡙࡙');
+    res.send('CASE MANAGEMENT SYSTEM ࡙࡙࡙࡙࡙');
 })
 
-app.listen(3032, () => {
-    console.log('Server Listening on Port 3032');
+app.listen(5008, () => {
+    console.log('Server Listening on Port 5008');
 })

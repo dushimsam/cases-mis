@@ -10,7 +10,6 @@ const Schema = mongoose.Schema({
     }
 })
 
-
 const Location = mongoose.Model('Location', Schema);
 registerSchema('Location',Location,{orm:'mongoose'})
 
